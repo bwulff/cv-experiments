@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   
-  <artifactId>cvsandbox-util</artifactId>
-  <name>CV-Sandbox Utilities</name>
-  <groupId>cv.opentrack.sandbox</groupId>
+  <artifactId>cvsandbox-exp1</artifactId>
+  <name>CV-Sandbox Experiment 1</name>
+  <groupId>cv.opentrack.sandbox.exp1</groupId>
   <packaging>bundle</packaging>
   
   <parent>
@@ -23,12 +23,35 @@
       <groupId>org.osgi</groupId>
       <artifactId>org.osgi.compendium</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.apache.felix</groupId>
+      <artifactId>org.apache.felix.scr.annotations</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>cv.opentrack.sandbox</groupId>
+      <artifactId>cvsandbox-util</artifactId>
+      <version>${project.version}</version>                    
+    </dependency>
   </dependencies>
   
   <version>0.1-SNAPSHOT</version>
 
   <build>
     <plugins>
+
+      <!-- Generate Declarative Service Descriptor -->
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-scr-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>generate-scr-scrdescriptor</id>
+            <goals>
+              <goal>scr</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
 
       <!-- Generate OSGi Bundle -->
       <plugin>
@@ -37,16 +60,13 @@
         <extensions>true</extensions>
         <configuration>
           <instructions>
-            <Bundle-SymbolicName> ${project.artifactId} </Bundle-SymbolicName>
-            <Bundle-Activator>cv.opentrack.sandbox.util.Activator</Bundle-Activator>
-            <Export-Package>
-              cv.opentrack.sandbox.util.conf;version=${project.version},
-              cv.opentrack.sandbox.util.display;version=${project.version}
-              </Export-Package>
+            <Bundle-SymbolicName>${artifactId}</Bundle-SymbolicName>
+            <!--Import-Package>
+              javax.imageio.*;resolution:=optional
+            </Import-Package -->
           </instructions>
         </configuration>
       </plugin>
-
     </plugins>
   </build>
 

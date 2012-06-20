@@ -30,6 +30,7 @@
       </activation>
       <modules>
         <module>modules/cvsandbox-util</module>
+        <module>modules/cvsandbox-exp1</module>
       </modules>
     </profile>
   </profiles>
