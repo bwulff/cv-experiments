@@ -15,7 +15,7 @@ import org.osgi.framework.ServiceRegistration;
 
 public class Activator implements BundleActivator {
 
-  private final static String separator = "-----------------------------------------------\n";
+  private final static String separator = "\n-----------------------------------------------\n";
   public static final String CONFIG_PATH = "./conf/sandbox.properties";
   private Configuration config;
   private ServiceRegistration configReg;

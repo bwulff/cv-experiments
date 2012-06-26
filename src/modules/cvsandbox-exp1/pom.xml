@@ -32,6 +32,12 @@
       <artifactId>cvsandbox-util</artifactId>
       <version>${project.version}</version>                    
     </dependency>
+    <dependency>
+      <groupId>org.ops4j.pax.logging</groupId>
+      <artifactId>pax-logging-api</artifactId>
+      <version>1.6.4</version>
+      <type>bundle</type>
+    </dependency>
   </dependencies>
   
   <version>0.1-SNAPSHOT</version>

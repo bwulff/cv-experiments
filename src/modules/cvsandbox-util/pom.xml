@@ -41,6 +41,7 @@
             <Bundle-Activator>cv.opentrack.sandbox.util.Activator</Bundle-Activator>
             <Export-Package>
               cv.opentrack.sandbox.util.conf;version=${project.version},
+              cv.opentrack.sandbox.util.command;version=${project.version},
               cv.opentrack.sandbox.util.display;version=${project.version}
               </Export-Package>
           </instructions>
